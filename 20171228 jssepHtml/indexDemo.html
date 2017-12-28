@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+
+    <title>Document</title>
+
+    <link rel="shortcut icon" href="/Public/img/favicon.ico" />
+    <link href="/Public/css/bootstrap.css" rel="stylesheet">
+    <link href="/Public/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/css/detail.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/css/user.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/css/announcement.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        var rootUrl = '';
+
+    </script>
+</head>
+
+<body>
+
+    <div class="home">
+
+        <header class="header">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="hidden-xs hidden-sm col-md-3 col-lg-3">
+                            <div class="navbar-header navbar-left">
+                                <a class="navbar-brand-mc" href="/">
+                            <img src="/Public/img/platTitle3.png" alt="logo"/>
+                        </a>
+                            </div>
+                        </div>
+                        <div class="hidden-xs visible-sm-block col-sm-2">
+                            <div class="navbar-header navbar-left">
+                                <a class="navbar-brand-mc" href="/">
+                            <img src="/Public/img/Brand-M.png" alt="logo"/>
+                        </a>
+                            </div>
+                        </div>
+                        <div class="visible-xs-block col-xs-2">
+                            <div class="navbar-header navbar-left">
+                                <a class="navbar-brand-mc" href="/">
+                            <img src="/Public/img/Brand-S.png" alt="logo"/>
+                        </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-8 col-sm-5 col-md-5 col-lg-5">
+                            <!--<div class="navbar-search navbar-left">-->
+                            <form class="navbar-form-mc" method="get" action="/course/search" role="search">
+                                <div class="input-group input-group-nav">
+                                    <input type="text" class="form-control" id="input-search" name="key" placeholder="搜索...">
+                                    <span class="input-group-btn">
+                                    <a role="button" class="btn" aria-label="Left Align" onclick="$(this).closest('form').submit()">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </a>
+                                    </span>
+                                </div>
+                            </form>
+                            <!--</div>-->
+                        </div>
+                        <div class="hidden-xs col-sm-5 col-md-4 col-lg-4">
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav pull-right">
+                                    <li id="nav-index"><a href="/">首页</a></li>
+                                    <li id="nav-course"><a href="/course">平台</a></li>
+                                    <li id="nav-notice"><a href="/announcement">公告</a></li>
+                                    <li><a href="/">登录</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="visible-xs-block col-xs-2">
+                            <div class="nav nav-hamburger pull-right">
+                                <a href="#ham" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/course">平台</a></li>
+                                    <li id="xs-nav-notice"><a href="/announcement">公告</a></li>
+                                    <li><a href="/">登录</a></li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="content">
+
+            <div class="wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="wrapper-intro col-xs-0 col-sm-6 col-md-8 col-lg-8">
+                            <!--                        <img src="/Public/img/sparknetLogo.png"/>-->
+                            <br/>
+                            <!--                        <img src="/Public/img/platTitleMini.png"/>-->
+                        </div>
+
+                        <!--<div class="wrapper-intro col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>-->
+
+                        <div class="log-or-sign col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" id="tab-sl">
+                                <li role="presentation" class="active"><a href="#login" aria-controls="login" role="tab" data-toggle="tab" id="tri-login">用户登录</a></li>
+                                <!--                            <li role="presentation"><a href="#register" aria-controls="register" role="tab" data-toggle="tab" id="tri-register">注册</a></li>-->
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <!-- Tab Log in -->
+                                <form role="tabpanel" class="tab-pane fade in active" id="login" onsubmit="return false;">
+                                    <div class="tab-info" id="login-info"></div>
+                                    <label for="login-email" class="sr-only">账号</label>
+                                    <input type="email" id="login-email" class="form-control" placeholder="账号" required autofocus>
+                                    <label for="login-password" class="sr-only">密码</label>
+                                    <input type="password" id="login-password" class="form-control" placeholder="密码" required>
+                                    <div class="checkbox">
+                                        <label class="f-white">
+                                <input type="checkbox" id="login-remember" checked> 记住我
+                                </label>
+                                        <a class="pull-right forgot" href="/recover">忘记密码</a>
+                                    </div>
+                                    <button class="btn btn-lg btn-primary btn-block login">登录</button>
+                                </form>
+                                <!-- Tab Register -->
+                                <form role="tabpanel" class="tab-pane fade" id="register" onsubmit="return false;">
+                                    <div class="tab-info" id="register-info"></div>
+                                    <label for="register-email" class="sr-only">账号</label>
+                                    <input type="email" id="register-email" class="form-control" placeholder="账号" required autofocus>
+                                    <label for="register-password" class="sr-only">密码</label>
+                                    <input type="password" id="register-password" class="form-control" placeholder="密码" required>
+                                    <button class="btn btn-lg btn-primary btn-block register">注册</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <!--
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <img class="footer-icon img-responsive pull-left" src="/Public/img/MiLogo.png"/>
+                <div class="footer-seg pull-right">
+                    <h5>关于米课</h5>
+                    <p>原由米课团队开发运营，后交由小百合工作室进行全新改版与功能丰富，致力于搭建帮助南大各院系同学选好课程，分享感受，互动交友的校内平台。感谢同学们的大力支持。</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <img class="footer-icon img-responsive img-rounded pull-left" src="/Public/img/LilyStudio.png"/>
+                <div class="footer-seg pull-right">
+                    <h5>关于小百合工作室</h5>
+                    <p>工作室成立于2000年，是由南京大学网络爱好者自发组织的一个学生团体，致力于传播校园网络文化，促进校园网络建设，服务广大同学，并为爱好网络和计算机科学与技术的同学提供一个交流学习、共同提高的平台。</p>
+                </div>
+            </div>
+        </div>
+-->
+            <div class="footer-info">
+                <p>
+                    <a href="http://www.sparksoft.com.cn">江苏星网软件有限公司</a>
+                    <a role="button" href="#" data-toggle="modal" data-target="#modal-feedback">意见反馈</a>
+                </p>
+                <P>建议使用1024*768以上分辨率进行浏览</P>
+                <P>浏览器兼容：IE8+、Firefox、Google Chrome</P>
+                <!--
+            <p>Designed & developed by CPC, Hane, ZingSS, SuperLatte, Christine & Polaris.</p>
+            <p>Copyright &copy; Lily Studio, 2015-2017</p>
+-->
+            </div>
+        </div>
+    </footer>
+    <!-- Modal Feedback -->
+    <div class="modal fade" id="modal-feedback" tabindex="-1" role="dialog" aria-labelledby="modal-title-rate">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a role="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                    <h4 class="modal-title" id="modal-title-rate">我要对网站内容进行反馈&gt;&lt;</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="feedback-content">内容</label>
+                            <textarea class="form-control" id="feedback-content"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a role="button" class="btn btn-default" data-dismiss="modal">取消</a>
+                    <a role="button" class="btn btn-primary" id="send-feedback">发送反馈</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Feedback End -->
+    <script src="/Public/js/footer.js"></script>
+    <script src="/Public/js/header.js"></script>
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-41774271-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/Public/js/jquery.toaster.js"></script>
+    <script src="/Public/js/index.js"></script>
+    <script>
+        $("#nav-index").addClass('active');
+
+    </script>
+
+</body>
+
+</html>

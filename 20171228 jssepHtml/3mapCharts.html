@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+    <script src="./js/echarts.js"></script>
+    <script src="./js/map/china.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: './js'
+            }
+        });
+        require(
+            [
+                'echarts',
+                'echarts/chart/line',
+                'echarts/chart/bar',
+                'echarts/chart/pie'
+            ],
+            function(ec) {
+                var myChart = ec.init(document.getElementById('main'));
+
+                var option = {
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b}'
+                    },
+                    series: [{
+                        name: '中国',
+                        type: 'map',
+                        mapType: 'china',
+                        selectedMode: 'multiple',
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: true
+                                }
+                            },
+                            emphasis: {
+                                label: {
+                                    show: true
+                                }
+                            }
+                        },
+                        data: [{
+                            name: '广东',
+                            selected: true
+                        }]
+                    }]
+                };
+                var ecConfig = require('echarts/config');
+                myChart.on(ecConfig.EVENT.MAP_SELECTED, function(param) {
+                    var selected = param.selected;
+                    var str = '当前选择： ';
+                    for (var p in selected) {
+                        if (selected[p]) {
+                            str += p + ' ';
+                        }
+                    }
+                    document.getElementById('wrong-message').innerHTML = str;
+                })
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

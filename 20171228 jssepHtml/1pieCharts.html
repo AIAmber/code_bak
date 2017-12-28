@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 100%; height:400px"></div>
+    <script src="./js/echarts.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: './js'
+            }
+        });
+        require(
+            [
+                'echarts',
+                'echarts/chart/line',
+                'echarts/chart/bar',
+                'echarts/chart/pie'
+            ],
+            function(ec) {
+                var myChart = ec.init(document.getElementById('main'));
+
+//                var myChartContainer = function() {
+//                    myChart.style.width = window.innerWidth + 'px';
+//                    myChart.style.height = window.innerHeight + 'px';
+//                };
+//                myChartContainer();
+
+                var option = {
+                    title: {
+                        text: '某站点用户访问来源',
+                        subtext: '纯属虚构',
+                        x: 'left'
+                    },
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        x: 'right',
+                        data: ['资源1', '资源2', '资源3', '资源4', '资源5']
+                    },
+                    series: [{
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '60%'],
+                        data: [{
+                                value: 335,
+                                name: '资源1'
+                            },
+                            {
+                                value: 310,
+                                name: '资源2'
+                            },
+                            {
+                                value: 234,
+                                name: '资源3'
+                            },
+                            {
+                                value: 135,
+                                name: '资源4'
+                            },
+                            {
+                                value: 1548,
+                                name: '资源5'
+                            }
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }]
+                };
+                myChart.setOption(option);
+
+                setTimeout(function() {
+                    window.onresize = function() {
+                        myChart.resize();
+                    }
+                }, 200)
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
