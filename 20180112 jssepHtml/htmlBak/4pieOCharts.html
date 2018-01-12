@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+    <script src="./js/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: './js'
+            }
+        });
+        require(
+            [
+                'echarts',
+                'echarts/chart/line',
+                'echarts/chart/bar',
+                'echarts/chart/pie'
+            ],
+            function(ec) {
+                var myChart = ec.init(document.getElementById('main'));
+
+                var option = {
+                    title: {
+                        text: '内存使用情况',
+                        subtext: '',
+                        x: 'left'
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: "{a} <br/>{b}: {c} ({d}%)"
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        x: 'right',
+                        data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                    },
+                    series: [{
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '30',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        data: [{
+                                value: 335,
+                                name: '直接访问'
+                            },
+                            {
+                                value: 310,
+                                name: '邮件营销'
+                            },
+                            {
+                                value: 234,
+                                name: '联盟广告'
+                            },
+                            {
+                                value: 135,
+                                name: '视频广告'
+                            },
+                            {
+                                value: 1548,
+                                name: '搜索引擎'
+                            }
+                        ]
+                    }]
+                };
+                myChart.setOption(option);
+            }
+        );
+    </script>
+
+</body>
+
+</html>
