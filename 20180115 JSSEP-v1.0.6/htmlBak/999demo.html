@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <link rel="shortcut icon" href="/Public/img/favicon.ico" />
+    <link href="/Public/css/bootstrap.css" rel="stylesheet">
+    <link href="/Public/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/css/detail.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/css/user.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/css/announcement.css" rel="stylesheet" type="text/css" />
+    <link href="/Public/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        var rootUrl = '';
+
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span6" id='ecmain1' style="height:400px"></div>
+            <script src="./js/echarts.js"></script>
+            <script type="text/javascript">
+                require.config({
+                    paths: {
+                        echarts: './js'
+                    }
+                });
+                require(
+                    [
+                        'echarts',
+                        'echarts/chart/line',
+                        'echarts/chart/bar',
+                        'echarts/chart/pie'
+                    ],
+                    function(ec) {
+                        var myChart = ec.init(document.getElementById('ecmain1'));
+
+                        var option = {
+                            title: {
+                                text: '某站点用户访问来源',
+                                subtext: '纯属虚构',
+                                x: 'left'
+                            },
+                            tooltip: {
+                                show: true
+                            },
+                            legend: {
+                                orient: 'vertical',
+                                left: 'left',
+                                data: ['资源1', '资源2', '资源3', '资源4', '资源5']
+                            },
+                            series: [{
+                                name: '访问来源',
+                                type: 'pie',
+                                radius: '55%',
+                                center: ['50%', '60%'],
+                                data: [{
+                                        value: 335,
+                                        name: '资源1'
+                                    },
+                                    {
+                                        value: 310,
+                                        name: '资源2'
+                                    },
+                                    {
+                                        value: 234,
+                                        name: '资源3'
+                                    },
+                                    {
+                                        value: 135,
+                                        name: '资源4'
+                                    },
+                                    {
+                                        value: 1548,
+                                        name: '资源5'
+                                    }
+                                ],
+                                itemStyle: {
+                                    emphasis: {
+                                        shadowBlur: 10,
+                                        shadowOffsetX: 0,
+                                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                    }
+                                }
+                            }]
+                        };
+                        myChart.setOption(option);
+                    }
+                );
+
+            </script>
+
+            <div class="span6" id='ecmain2' style="height:400px"></div>
+            <script type="text/javascript">
+                require.config({
+                    paths: {
+                        echarts: './js'
+                    }
+                });
+                require(
+                    [
+                        'echarts',
+                        'echarts/chart/line',
+                        'echarts/chart/bar',
+                        'echarts/chart/pie'
+                    ],
+                    function(ec) {
+                        var myChart = ec.init(document.getElementById('ecmain2'));
+
+                        var option = {
+                            color: ['#3398DB'],
+                            tooltip: {
+                                show: true,
+                                trigger: 'axis',
+                                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                                }
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '3%',
+                                containLabel: true
+                            },
+                            xAxis: [{
+                                type: 'category',
+                                data: ['资源1', '资源2', '资源3', '资源4', '资源5', '资源6', '资源7', '资源8'],
+                                axisTick: {
+                                    alignWithLabel: true
+                                }
+                            }],
+                            yAxis: [{
+                                type: 'value'
+                            }],
+                            series: [{
+                                name: '直接访问',
+                                type: 'bar',
+                                data: [10, 52, 200, 334, 390, 330, 220, 357]
+                            }]
+                        };
+                        myChart.setOption(option);
+                    }
+                );
+
+            </script>
+        </div>
+        <div class="row-fluid">
+            <div class="span6">
+                <p>
+                    <em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+                </p>
+            </div>
+            <div class="span6">
+                <p>
+                    <em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/Public/js/jquery.toaster.js"></script>
+    <script src="/Public/js/index.js"></script>
+    <script>
+        $("#nav-index").addClass('active');
+    </script>
+</body>
+
+</html>

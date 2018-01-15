@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title></title>
+    <!-- Bootstrap -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+		<script src="./js/html5shiv.min.js"></script>
+    	<script src="./js/respond.min.js"></script>
+    <![endif]-->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+	<script src="./js/director.min.js"></script>
+	<!-- <script src="./js/pageUtil.js"></script> -->
+	<style type="text/css">
+		.panel-heading{padding:5px 15px;height: 41px}
+		.panel-heading-title{font-size: 15px;margin-top:4px}
+		.panel-heading-title > span.glyphicon{margin-right: 5px}
+		.pagination{margin: 0px}
+	</style>
+</head>
+<body>
+	<div class="panel panel-default" style="width: 45%">
+		<div class="panel-heading clearfix">
+			<div class="pull-left panel-heading-title">
+				<span class="glyphicon glyphicon-search"></span>
+				查询
+			</div>
+			<div class="pull-right">
+				<input class="btn btn-default btn-sm" type="button" value="查询">
+				<input class="btn btn-default btn-sm" type="button" value="重置">
+			</div>
+		</div>
+	  	<div class="panel-body" >
+		  	<form class="form-horizontal">
+		  		<div class="form-group col-sm-4">
+				    <label class="control-label col-sm-3">任务名称</label>
+				    <div class="col-sm-9">
+				      	<input type="text" class="form-control" placeholder="任务名称">
+				    </div>
+		    	</div>
+		    	<div class="form-group col-sm-4">
+				    <label class="control-label col-sm-5">源库实例名</label>
+				    <div class="col-sm-7">
+				      	<input type="text" class="form-control" placeholder="源库实例名">
+				    </div>
+		    	</div>
+		    	<div class="form-group col-sm-4">
+				    <label class="control-label col-sm-5">目标库实例名</label>
+				    <div class="col-sm-7">
+				      	<input type="text" class="form-control" placeholder="目标库实例名">
+				    </div>
+		    	</div>
+			</form>
+ 		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading clearfix">
+			<div class="pull-left panel-heading-title">
+				<span class="glyphicon glyphicon-list"></span>
+				目录列表
+			</div>
+			<div class="pull-right">
+				<input class="btn btn-default btn-sm" type="button" value="删除">
+			</div>
+		</div>
+	  	<div class="panel-body">
+		  	<table class="table table-bordered table-striped table-hover">
+		  		<thead>
+				  	<tr>
+						<th style="width:30px"><input type="checkbox"></th>
+						<th>任务名称</th>
+						<th>源库地址</th>
+						<th>源库实例名</th>
+						<th>目标库地址</th>
+						<th>目标库实例名</th>
+						<th>执行周期</th>
+						<th style="width:80px">是否运行</th>
+						<th class="text-center" style="width:100px">操作</th>
+			        </tr>
+		  		</thead>
+		  		<tbody>
+			        <tr>
+			        	<td><input type="checkbox"></td>
+			        	<td>任务名称1</td>
+						<td>192.168.1.100</td>
+						<td>test1</td>
+						<td>192.168.1.123</td>
+						<td>test2</td>
+						<td>每3小时</td>
+						<td class="text-center"><img src="<%=path%>/./img/start.png" width="20px"></td>
+						<td class="text-center"><a href="#" type="button" class="btn btn-link btn-xs">修改</a>
+						<a href="#" type="button" class="btn btn-link btn-xs">删除</a></td>
+			        </tr>
+			        <tr>
+			        	<td><input type="checkbox"></td>
+			        	<td>任务名称2</td>
+						<td>192.168.1.100</td>
+						<td>test1</td>
+						<td>192.168.1.123</td>
+						<td>test2</td>
+						<td>每5分钟</td>
+						<td class="text-center"><img src="<%=path%>/./img/stop.png" width="24px"></td>
+						<td class="text-center"><a href="#" class="btn btn-link btn-xs">修改</a>
+						<a href="#" type="button" class="btn btn-link btn-xs">删除</a></td>
+			        </tr>
+		  		</tbody>
+			</table>
+			<!-- <div pagination="p-new" pageNumber="1" totalNumber="15" pageSize="10" totalCount="200"></div> -->
+			<div class="clearfix">
+				<div class="form-group clearfix pull-right">
+					<div class="pull-left" style="padding-top:7px;margin-right: 10px;font-size: 15px">
+						共100页&nbsp;&nbsp;
+					</div>
+			  		<select class="form-control pull-left" style="width: 151px;margin-right: 10px">
+						<option>每页显示5条</option>
+						<option>每页显示10条</option>
+						<option>每页显示20条</option>
+						<option>每页显示50条</option>
+						<option>每页显示100条</option>
+						<option>每页显示200条</option>
+						<option>每页显示500条</option>
+						<option>每页显示1000条</option>
+					</select>
+					<ul class="pagination pull-left ">
+					    <li class="disabled" title="首页"><a href="#"><span>&laquo;</span></a></li>
+					    <li class="disabled" title="上一页"><a href="#"><span>&lsaquo;</span></a></li>
+					    <li class="active"><a href="#">1</a></li>
+					    <li><a href="#">2</a></li>
+					    <li><a href="#">3</a></li>
+					    <li><a href="#">4</a></li>
+					    <li><a href="#">5</a></li>
+					    <li><a href="#" title="下一页"><span>&rsaquo;</span></a></li>
+					    <li><a href="#" title="末页"><span>&raquo;</span></a></li>
+			  		</ul>
+			  		<div class="pull-left" style="margin: 0px 10px">
+			  			<div class="pull-left" style="padding-top:7px;">跳转至</div>
+				  		<input type="text" class="form-control pull-left" style="width: 35px;margin: 0px 4px;padding: 0px 9px"/>
+				  		<div class="pull-left" style="padding-top:7px;">页</div>
+			  		</div>
+				</div>
+			</div>
+ 		</div>
+	</div>
+</body>
+</html>
